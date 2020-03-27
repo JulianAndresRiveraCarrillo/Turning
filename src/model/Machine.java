@@ -51,7 +51,7 @@ public class Machine {
 				C1.setNextL(temp.getNextL());
 				C1.setPrevL(temp);
 				temp.setNextL(C1);
-			} else if(c == 2) {
+			} else {
 				temp = C2;
 				C2 = L;
 				temp.setNextL(C2);
@@ -72,7 +72,7 @@ public class Machine {
 				temp.setNextL(C1.getNextL());
 				C1.getNextL().setPrevL(temp);
 				Lenght();
-			}else if (c == 2) {
+			}else {
 				temp = C2.getPrevL();
 				C2 = temp;
 				C2.setNextL(null);
@@ -80,8 +80,18 @@ public class Machine {
 		}
 	}
 	
-	
-	
-	
+	public char readLetter(int c) {
+		char letter = ' ';
+		if (firstLetter != null) {
+			if (c == 0) {
+				letter = C0.getLetter();
+			}else if (c == 1) {
+				letter = C1.getLetter();
+			}else {
+				letter = C2.getLetter();
+			}
+		}
+		return letter;
+	}
 	
 }
