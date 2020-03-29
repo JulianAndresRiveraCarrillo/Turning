@@ -109,7 +109,7 @@ public class Main {
 		return letter;
 	}
 	
-	private static boolean isNumeric(char temp) {
+	public static boolean isNumeric(char temp) {
 		boolean num = true;
 		try {
 			Integer.parseInt(String.valueOf(temp));

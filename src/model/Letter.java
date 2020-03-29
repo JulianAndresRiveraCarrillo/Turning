@@ -37,10 +37,4 @@ public class Letter {
 		this.prevL = prevL;
 	}
 
-	public char toChar() {
-		return letter;
-	}
-	
-	
-
 }
