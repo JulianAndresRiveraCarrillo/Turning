@@ -27,7 +27,9 @@ public class Machine {
 		int med = (min+max)/2;
 		int cont = 0;
 		while (cont <= med ) {
-			C1 = C1.getNextL();
+			if (C1.getNextL() != null) {
+				C1 = C1.getNextL();
+			}
 		}
 	}
 	public void addLetter(int c, char letter) {
@@ -68,10 +70,21 @@ public class Machine {
 				firstLetter = C0.getNextL();
 				C0 = firstLetter;
 			}else if (c == 1) {
-				temp = C1.getPrevL();
-				temp.setNextL(C1.getNextL());
-				C1.getNextL().setPrevL(temp);
-				Lenght();
+				if(C1!= firstLetter && C1.getNextL() != null) {
+					temp = C1.getPrevL();
+					temp.setNextL(C1.getNextL());
+					C1.getNextL().setPrevL(temp);
+					Lenght();
+				}else if (C1 != firstLetter && C1.getNextL() == null) {
+					temp = C1.getPrevL();
+					temp.setNextL(null);
+					Lenght();
+				}else{
+					firstLetter = null;
+					C1 = null;
+					C0 = null;
+					C2 = null;
+				}
 			}else {
 				temp = C2.getPrevL();
 				C2 = temp;
@@ -90,6 +103,8 @@ public class Machine {
 			}else {
 				letter = C2.getLetter();
 			}
+		}else {
+			
 		}
 		return letter;
 	}
